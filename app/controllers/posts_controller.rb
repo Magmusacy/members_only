@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-
-  # Show all posts
   def index
     @posts = Post.all
   end
@@ -13,8 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      flash[:notice] = "Congratulations! Post created successfully."
-      redirect_to @post
+      redirect_to @post, notice: "Congratulations! Post created successfully."
     else
       flash.now[:alert] = "Something went wrong..."
       render :new
@@ -33,8 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      flash[:notice] = "Congratulations! Post updated successfully."
-      redirect_to @post
+      redirect_to @post, notice: "Congratulations! Post updated successfully."
     else
       flash.now[:alert] = "Something went wrong..."
       render :edit
@@ -44,8 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.delete
-    flash[:notice] = "Congratulations! Post deleted successfully."
-      redirect_to root_path
+    redirect_to root_path, notice: "Congratulations! Post deleted successfully."
   end
 
   private
