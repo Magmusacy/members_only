@@ -24,14 +24,25 @@
         <li>
           <%= link_to "[home_page]", root_path %>
         </li>
-        <li>
-          <%= link_to "[sign_up]", new_user_path %>
-        </li> <%# this shouldn't show up when user is logged in %>
-        <li>
-          <%= link_to "[log_in]", root_path %>
-        </li>
+
+        <% if current_user %>
+          <li>
+            <%= current_user.name %>
+          </li>
+          <li>
+            <%= link_to "[log_out]", session_path(current_user.id), method: :delete, data: { confirmation: "Dab" } %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "[log_in]", new_session_path %>
+          </li>
+          <li>
+            <%= link_to "[sign_up]", new_user_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
+
     <%= yield %>
   </body>
 </html>
