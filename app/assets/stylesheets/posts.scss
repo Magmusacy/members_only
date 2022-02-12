@@ -43,3 +43,16 @@ body {
 .home-page-link {
   text-align: center;
 }
+
+ul {
+  display: inline-block;
+}
+
+ul li {
+  display: block;
+  position: relative;
+  float: left;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
