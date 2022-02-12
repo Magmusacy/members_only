@@ -1,0 +1,17 @@
+<div class="title">
+  <h1><%= @post.title %></h1>
+</div>
+
+<%# display author after the title %>
+<div class="body">
+  <p><%= @post.body %></p>
+</div>
+
+<div>
+  <%= link_to "Remove post", @post, method: :delete, data: { confirm: "Are you sure you want to delete this post?" }  %>
+</div>
+<div>
+  <%= link_to "Update post", edit_post_path(@post) %>
+</div>
+<%# edit post %>
+<%# remove post %>

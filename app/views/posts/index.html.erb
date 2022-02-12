@@ -1,1 +1,10 @@
-<h1>Hello world</h1>
+<%# Show all posts here %>
+
+<% if @posts.any? %>
+  <div class="post">
+    <% @posts.each do |post| %>
+      <%= link_to post.title, post, class: 'post-title' %>
+      <%# display author here if user is logged in %>
+    <% end %>
+  </div>
+<% end %>
