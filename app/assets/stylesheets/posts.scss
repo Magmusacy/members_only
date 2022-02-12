@@ -7,9 +7,14 @@ body {
 }
 
 .post {
-  border: solid green 2px;
+  border: solid rgb(122, 114, 3) 2px;
   font-size: large;
   margin: 20px;
+}
+
+.post-title {
+  color: rgb(122, 114, 3);
+  font-size: larger
 }
 
 .title {

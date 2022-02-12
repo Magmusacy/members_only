@@ -1,10 +1,22 @@
-<%# Show all posts here %>
+<p>
+  <%= link_to "Create post", new_post_path %>
+</p>
 
 <% if @posts.any? %>
-  <div class="post">
+  <div>
     <% @posts.each do |post| %>
-      <%= link_to post.title, post, class: 'post-title' %>
-      <%# display author here if user is logged in %>
+      <div class="post">
+        <p>
+          <%= link_to post.title, post, class: 'post-title' %>
+        </p>
+        <p>
+          <% if current_user %>
+            Author: <%= post.user.name %>
+          <% else %>
+            Author: anonymous
+          <% end %>
+        </p>
+      </div>
     <% end %>
   </div>
 <% end %>
