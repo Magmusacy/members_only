@@ -1,7 +1,17 @@
 <%= form_with url: sessions_path do |form| %>
-  <%= form.label :name, "Username: " %>
-  <%= form.text_field :name %>
-  <%= form.label :password, "Password: " %>
-  <%= form.password_field :password %>
+  <ul>
+    <li>
+      <%= form.label :name, "Username: " %>
+      <%= form.text_field :name %>
+    </li>
+    <li>
+      <%= form.label :password, "Password: " %>
+      <%= form.password_field :password %>
+    </li>
+    <li>
+      <%= form.label :remember_token, "Remember me" %>
+      <%= form.check_box :remember_token %>
+    </li>
+  </ul>
   <%= form.submit "Login" %>
 <% end %>
