@@ -1,9 +1,11 @@
 <%# Show all posts here %>
 
+<h2><%= link_to "Create new post", new_post_path %></h2>
+
 <% if @posts.any? %>
   <div class="post">
     <% @posts.each do |post| %>
-      <%= link_to post.title, post, class: 'post-title' %>
+      <%= link_to post.title, post, class: 'post-title' %><br/>
       <%# display author here if user is logged in %>
     <% end %>
   </div>
