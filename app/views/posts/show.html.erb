@@ -1,8 +1,12 @@
 <div class="title">
   <h1><%= @post.title %></h1>
+  <% if user_signed_in? %>
+    <p>Author: <%= @post.user.name %></p>
+  <% else %>
+    <p>Author: anonymous</p>
+  <% end %>
 </div>
 
-<%# display author after the title %>
 <div class="body">
   <p><%= @post.body %></p>
 </div>
@@ -13,5 +17,3 @@
 <div>
   <%= link_to "Update post", edit_post_path(@post) %>
 </div>
-<%# edit post %>
-<%# remove post %>
