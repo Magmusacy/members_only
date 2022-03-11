@@ -19,9 +19,16 @@
       <p class="alert"><%= flash[:alert] %></p>
     <% end %>
 
-    <p class="home-page-link">
-      <%= link_to "[home page]", root_path %>
-    </p>
+
+    <li>
+      <ul><%= link_to "[home page]", root_path %></ul>
+      <% if user_signed_in? %>
+        <ul><%= link_to "[sign out]", destroy_user_session_path, method: :delete %></ul>
+      <% else %>
+        <ul><%= link_to "[sign up]", new_user_registration_path %></ul>
+        <ul><%= link_to "[sign in]", new_user_session_path %></ul>
+      <% end %>
+    </li>
     <%= yield %>
   </body>
 </html>
